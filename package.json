@@ -1,0 +1,15 @@
+{
+  "name": "js-repository-factory",
+  "version": "1.0.0",
+  "description": "Setting up a factory pattern for calling external services",
+  "main": "main.js",
+  "scripts": {
+    "start": "browserify js/*.js -o bundle.js --debug && watchify js/*.js -o bundle.js --debug --verbose"
+  },
+  "author": "Åsa Liljegren",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "watchify": "^3.7.0"
+  }
+}
