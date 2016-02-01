@@ -1,0 +1,1 @@
+npm start to run browserify and watchify
