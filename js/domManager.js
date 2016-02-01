@@ -8,6 +8,7 @@ DomManager.prototype.addListItem = function(text, value) {
     var text = document.createTextNode(text);
     li.appendChild(text);
     this.element.appendChild(li);
+    return this;
 };
 
 module.exports = function(selector) {

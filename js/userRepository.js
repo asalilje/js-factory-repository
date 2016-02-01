@@ -15,7 +15,7 @@ var userRepository = function() {
                 callback(user);
             })
             .catch(function (err) {
-                console.error('Augh, there was an error!', err.statusText);
+                console.error('Ouch, there was an error!', err.statusText);
             });
     };
 
