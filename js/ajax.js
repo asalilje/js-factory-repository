@@ -1,6 +1,15 @@
-var ajax = function() {
+var ajax = function () {
 
-    var makeRequest = function (method, url) {
+    var createParams = function (params) {
+        if (params && typeof params === 'object') {
+            params = Object.keys(params).map(function (key) {
+                return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+            }).join('&');
+        }
+        return params;
+    };
+
+    var makeRequest = function (method, url, params) {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
             xhr.open(method, url);
@@ -21,7 +30,10 @@ var ajax = function() {
                     statusText: xhr.statusText
                 });
             };
-            xhr.send();
+            if (params) {
+                params = xhr.params = createParams(params);
+            }
+            xhr.send(params);
         });
     };
 

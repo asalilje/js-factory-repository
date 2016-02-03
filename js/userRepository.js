@@ -5,7 +5,6 @@ var userRepository = function() {
     var get = function(id, callback) {
         ajax.makeRequest('GET', 'users.json')
             .then(function (data) {
-                console.log(data);
                 var users = JSON.parse(data);
                 var user = users.filter(function(user) {
                     return user.id === id;
@@ -19,8 +18,14 @@ var userRepository = function() {
             });
     };
 
-    var save = function(user) {
-        console.log("saving user id " + user.id);
+    var save = function(user, callback) {
+        ajax.makeRequest('POST', 'users.json', {'id': user.id, 'name': user.name})
+            .then(function (data) {
+                callback("saving user id " + user.id);
+            })
+            .catch(function (err) {
+                console.error('Ouch, there was an error!', err.statusText);
+            });
     };
 
     return {

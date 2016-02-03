@@ -1,8 +1,8 @@
-var DomManager = function(selector) {
+var DomManager = function (selector) {
     this.element = document.querySelector(selector);
 };
 
-DomManager.prototype.addListItem = function(text, value) {
+DomManager.prototype.addListItem = function (text, value) {
     var li = document.createElement("li");
     li.setAttribute("value", value);
     var text = document.createTextNode(text);
@@ -11,7 +11,17 @@ DomManager.prototype.addListItem = function(text, value) {
     return this;
 };
 
-module.exports = function(selector) {
+DomManager.prototype.addHtml = function (html) {
+    this.element.innerHTML = html;
+    return this;
+};
+
+DomManager.prototype.addText = function (text) {
+    this.element.textContent = text;
+    return this;
+};
+
+module.exports = function (selector) {
     return new DomManager(selector);
 };
 
