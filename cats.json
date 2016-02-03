@@ -1,0 +1,7 @@
+[
+  { "id":1, "name":"Cat Number One", "image": "http://lorempixel.com/200/200/cats/2" },
+  { "id":2, "name":"Cat Number Two", "image": "http://lorempixel.com/200/200/cats/4" },
+  { "id":3, "name":"Cat Number Three" },
+  { "id":4, "name":"Cat Number Four", "image": "http://lorempixel.com/200/200/cats/6" },
+  { "id":5, "name":"Cat Number Five", "image": "http://lorempixel.com/200/200/cats/8" }
+]

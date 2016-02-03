@@ -12,12 +12,7 @@ DomManager.prototype.addListItem = function (text, value) {
 };
 
 DomManager.prototype.addHtml = function (html) {
-    this.element.innerHTML = html;
-    return this;
-};
-
-DomManager.prototype.addText = function (text) {
-    this.element.textContent = text;
+    this.element.insertAdjacentHTML('beforeend', html);
     return this;
 };
 

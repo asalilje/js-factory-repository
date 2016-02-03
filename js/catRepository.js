@@ -1,17 +1,17 @@
 var ajax = require("./ajax");
 
-var userRepository = function() {
+var catRepository = function() {
 
     var get = function(id, callback) {
-        ajax.makeRequest('GET', 'users.json')
+        ajax.makeRequest('GET', 'cats.json')
             .then(function (data) {
-                var users = JSON.parse(data);
-                var user = users.filter(function(user) {
-                    return user.id === id;
+                var cats = JSON.parse(data);
+                var cat = cats.filter(function(cat) {
+                    return cat.id === id;
                 });
-                if (user.length > 0)
-                    user = user[0];
-                callback(user);
+                if (cat.length > 0)
+                    cat = cat[0];
+                callback(cat);
             })
             .catch(function (err) {
                 console.error('Ouch, there was an error!', err.statusText);
@@ -19,20 +19,20 @@ var userRepository = function() {
     };
 
     var list = function(callback) {
-        ajax.makeRequest('GET', 'users.json')
+        ajax.makeRequest('GET', 'cats.json')
             .then(function (data) {
-                var users = JSON.parse(data);
-                callback(users);
+                var cats = JSON.parse(data);
+                callback(cats);
             })
             .catch(function (err) {
                 console.error('Ouch, there was an error!', err.statusText);
             });
     };
 
-    var save = function(user, callback) {
-        ajax.makeRequest('POST', 'users.json', {'id': user.id, 'name': user.name})
+    var save = function(cat, callback) {
+        ajax.makeRequest('POST', 'cats.json', {'id': cat.id, 'name': cat.name, 'image': cat.image})
             .then(function (data) {
-                callback("saving user id " + user.id);
+                callback("saving cat id " + cat.id);
             })
             .catch(function (err) {
                 console.error('Ouch, there was an error!', err.statusText);
@@ -46,4 +46,4 @@ var userRepository = function() {
     };
 };
 
-module.exports = userRepository;
+module.exports = catRepository;
