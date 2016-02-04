@@ -46,4 +46,4 @@ var userRepository = function() {
     };
 };
 
-module.exports = userRepository;
+module.exports = userRepository();

@@ -46,4 +46,4 @@ var catRepository = function() {
     };
 };
 
-module.exports = catRepository;
+module.exports = catRepository();

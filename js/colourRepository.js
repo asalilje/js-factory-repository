@@ -32,4 +32,4 @@ var colourRepository = function () {
     };
 };
 
-module.exports = colourRepository;
+module.exports = colourRepository();
